@@ -1,0 +1,10 @@
+﻿{
+    "profiles": {
+      "AreYouDumb (Package)": {
+        "commandName": "MsixPackage"
+      },
+      "AreYouDumb (Unpackaged)": {
+        "commandName": "Project"
+      }
+    }
+}
