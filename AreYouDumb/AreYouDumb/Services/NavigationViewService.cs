@@ -1,10 +1,8 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-using AreYouDumb.Contracts.Services;
+﻿using AreYouDumb.Contracts.Services;
 using AreYouDumb.Helpers;
 using AreYouDumb.ViewModels;
-
 using Microsoft.UI.Xaml.Controls;
+using System.Diagnostics.CodeAnalysis;
 
 namespace AreYouDumb.Services;
 
@@ -44,14 +42,9 @@ public class NavigationViewService : INavigationViewService
     }
 
     public NavigationViewItem? GetSelectedItem(Type pageType)
-    {
-        if (_navigationView != null)
-        {
-            return GetSelectedItem(_navigationView.MenuItems, pageType) ?? GetSelectedItem(_navigationView.FooterMenuItems, pageType);
-        }
-
-        return null;
-    }
+        => _navigationView != null
+            ? GetSelectedItem(_navigationView.MenuItems, pageType) ?? GetSelectedItem(_navigationView.FooterMenuItems, pageType)
+            : null;
 
     private void OnBackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args) => _navigationService.GoBack();
 
@@ -59,7 +52,7 @@ public class NavigationViewService : INavigationViewService
     {
         if (args.IsSettingsInvoked)
         {
-            _navigationService.NavigateTo(typeof(SettingsViewModel).FullName!);
+            _ = _navigationService.NavigateTo(typeof(SettingsViewModel).FullName!);
         }
         else
         {
@@ -67,7 +60,7 @@ public class NavigationViewService : INavigationViewService
 
             if (selectedItem?.GetValue(NavigationHelper.NavigateToProperty) is string pageKey)
             {
-                _navigationService.NavigateTo(pageKey);
+                _ = _navigationService.NavigateTo(pageKey);
             }
         }
     }
@@ -93,11 +86,7 @@ public class NavigationViewService : INavigationViewService
 
     private bool IsMenuItemForPageType(NavigationViewItem menuItem, Type sourcePageType)
     {
-        if (menuItem.GetValue(NavigationHelper.NavigateToProperty) is string pageKey)
-        {
-            return _pageService.GetPageType(pageKey) == sourcePageType;
-        }
-
-        return false;
+        return menuItem.GetValue(NavigationHelper.NavigateToProperty) is string pageKey
+&& _pageService.GetPageType(pageKey) == sourcePageType;
     }
 }

@@ -1,9 +1,7 @@
-﻿using System.Runtime.InteropServices;
-
-using Microsoft.UI;
+﻿using Microsoft.UI;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Media;
-
+using System.Runtime.InteropServices;
 using Windows.UI;
 
 namespace AreYouDumb.Helpers;
@@ -78,13 +76,13 @@ internal class TitleBarHelper
             var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(App.MainWindow);
             if (hwnd == GetActiveWindow())
             {
-                SendMessage(hwnd, WMACTIVATE, WAINACTIVE, IntPtr.Zero);
-                SendMessage(hwnd, WMACTIVATE, WAACTIVE, IntPtr.Zero);
+                _ = SendMessage(hwnd, WMACTIVATE, WAINACTIVE, IntPtr.Zero);
+                _ = SendMessage(hwnd, WMACTIVATE, WAACTIVE, IntPtr.Zero);
             }
             else
             {
-                SendMessage(hwnd, WMACTIVATE, WAACTIVE, IntPtr.Zero);
-                SendMessage(hwnd, WMACTIVATE, WAINACTIVE, IntPtr.Zero);
+                _ = SendMessage(hwnd, WMACTIVATE, WAACTIVE, IntPtr.Zero);
+                _ = SendMessage(hwnd, WMACTIVATE, WAINACTIVE, IntPtr.Zero);
             }
         }
     }

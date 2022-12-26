@@ -1,11 +1,9 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-using AreYouDumb.Contracts.Services;
+﻿using AreYouDumb.Contracts.Services;
 using AreYouDumb.Contracts.ViewModels;
 using AreYouDumb.Helpers;
-
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Navigation;
+using System.Diagnostics.CodeAnalysis;
 
 namespace AreYouDumb.Services;
 
@@ -43,10 +41,7 @@ public class NavigationService : INavigationService
     [MemberNotNullWhen(true, nameof(Frame), nameof(_frame))]
     public bool CanGoBack => Frame != null && Frame.CanGoBack;
 
-    public NavigationService(IPageService pageService)
-    {
-        _pageService = pageService;
-    }
+    public NavigationService(IPageService pageService) => _pageService = pageService;
 
     private void RegisterFrameEvents()
     {

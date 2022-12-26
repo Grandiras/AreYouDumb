@@ -5,8 +5,6 @@ using AreYouDumb.Helpers;
 using AreYouDumb.Models;
 
 using Microsoft.Extensions.Options;
-
-using Windows.ApplicationModel;
 using Windows.Storage;
 
 namespace AreYouDumb.Services;

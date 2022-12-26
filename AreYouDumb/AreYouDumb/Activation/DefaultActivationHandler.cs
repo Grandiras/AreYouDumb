@@ -9,20 +9,15 @@ public class DefaultActivationHandler : ActivationHandler<LaunchActivatedEventAr
 {
     private readonly INavigationService _navigationService;
 
-    public DefaultActivationHandler(INavigationService navigationService)
-    {
-        _navigationService = navigationService;
-    }
+    public DefaultActivationHandler(INavigationService navigationService) => _navigationService = navigationService;
 
-    protected override bool CanHandleInternal(LaunchActivatedEventArgs args)
-    {
+    protected override bool CanHandleInternal(LaunchActivatedEventArgs args) =>
         // None of the ActivationHandlers has handled the activation.
-        return _navigationService.Frame?.Content == null;
-    }
+        _navigationService.Frame?.Content == null;
 
-    protected async override Task HandleInternalAsync(LaunchActivatedEventArgs args)
+    protected override async Task HandleInternalAsync(LaunchActivatedEventArgs args)
     {
-        _navigationService.NavigateTo(typeof(MainViewModel).FullName!, args.Arguments);
+        _ = _navigationService.NavigateTo(typeof(MainViewModel).FullName!, args.Arguments);
 
         await Task.CompletedTask;
     }

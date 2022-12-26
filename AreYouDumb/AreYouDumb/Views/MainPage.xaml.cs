@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using AreYouDumb.ViewModels;
+﻿using AreYouDumb.ViewModels;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;

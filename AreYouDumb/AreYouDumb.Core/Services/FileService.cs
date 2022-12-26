@@ -1,8 +1,6 @@
-﻿using System.Text;
-
-using AreYouDumb.Core.Contracts.Services;
-
+﻿using AreYouDumb.Core.Contracts.Services;
 using Newtonsoft.Json;
+using System.Text;
 
 namespace AreYouDumb.Core.Services;
 
@@ -24,7 +22,7 @@ public class FileService : IFileService
     {
         if (!Directory.Exists(folderPath))
         {
-            Directory.CreateDirectory(folderPath);
+            _ = Directory.CreateDirectory(folderPath);
         }
 
         var fileContent = JsonConvert.SerializeObject(content);
