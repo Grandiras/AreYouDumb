@@ -84,9 +84,6 @@ public class NavigationViewService : INavigationViewService
         return null;
     }
 
-    private bool IsMenuItemForPageType(NavigationViewItem menuItem, Type sourcePageType)
-    {
-        return menuItem.GetValue(NavigationHelper.NavigateToProperty) is string pageKey
+    private bool IsMenuItemForPageType(NavigationViewItem menuItem, Type sourcePageType) => menuItem.GetValue(NavigationHelper.NavigateToProperty) is string pageKey
 && _pageService.GetPageType(pageKey) == sourcePageType;
-    }
 }
