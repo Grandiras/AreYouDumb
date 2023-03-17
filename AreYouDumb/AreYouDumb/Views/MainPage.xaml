@@ -1,22 +1,41 @@
-﻿<Page x:Class="AreYouDumb.Views.MainPage"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      mc:Ignorable="d">
+﻿<Page
+    x:Class="AreYouDumb.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
 
     <Grid x:Name="ContentArea">
 
-        <TextBlock HorizontalAlignment="Center" FontSize="36" FontWeight="Bold" x:Uid="Main_AreYouDumb" />
+        <TextBlock
+            x:Uid="Main_AreYouDumb"
+            HorizontalAlignment="Center"
+            FontSize="36"
+            FontWeight="Bold" />
 
-        <Button VerticalAlignment="Bottom" Margin="30 0 0 10" x:Uid="Main_Yes" Width="200" Height="40" Click="Yes_ClickAsync" />
+        <Button
+            x:Uid="Main_Yes"
+            Width="200"
+            Height="40"
+            Margin="30,0,0,10"
+            VerticalAlignment="Bottom"
+            Click="Yes_ClickAsync" />
 
-        <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 30 10" x:Uid="Main_No" Width="200" Height="40" x:Name="NotDumb" PointerEntered="NotDumb_PointerEntered">
+        <Button
+            x:Name="NotDumb"
+            x:Uid="Main_No"
+            Width="200"
+            Height="40"
+            Margin="0,0,30,10"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            PointerEntered="NotDumb_PointerEntered">
             <Button.TranslationTransition>
-                <Vector3Transition Duration="0:0:0.250" />
+                <Vector3Transition Duration="0:0:0.200" />
             </Button.TranslationTransition>
         </Button>
 
     </Grid>
-    
+
 </Page>

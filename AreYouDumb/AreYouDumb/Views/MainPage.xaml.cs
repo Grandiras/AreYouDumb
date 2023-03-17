@@ -39,7 +39,7 @@ public sealed partial class MainPage : Page
         var x = -Random.Next(0, 16) * 10;
         var y = -Random.Next(0, 20) * 10;
 
-        if (e.GetIntermediatePoints(NotDumb).Last().Position.Y is >= -100 and <= 100) y -= 100;
+        if (e.GetIntermediatePoints(NotDumb).Last().Position.Y - NotDumb.Translation.Y + y is >= -100 and <= 100) y -= 100;
 
         NotDumb.Translation = new(x, y, 0);
     }
