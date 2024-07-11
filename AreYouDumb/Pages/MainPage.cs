@@ -1,9 +1,10 @@
 ﻿using Microsoft.UI.Text;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media.Animation;
 using WinSharp.BindingExtensions;
+using WinSharp.BindingExtensions.Events;
+using WinSharp.Helpers;
 using WinSharp.Styles;
 using Grid = WinSharp.Controls.Grid;
 
@@ -31,19 +32,13 @@ internal sealed class MainPage : Page
             Margin = new(30, 0, 0, 10),
             VerticalAlignment = VerticalAlignment.Bottom,
         }
-        .OnClick(async () =>
+        .OnClick(async () => await new ContentDialog
         {
-            var dialog = new ContentDialog
-            {
-                XamlRoot = XamlRoot,
-                Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style,
-                Title = AreYouDumb.Resources.MainPage_YesDialog_Title,
-                Content = AreYouDumb.Resources.MainPage_YesDialog_Content,
-                PrimaryButtonText = AreYouDumb.Resources.MainPage_YesDialog_Button,
-                DefaultButton = ContentDialogButton.Primary,
-            };
-            _ = await dialog.ShowAsync();
-        }),
+            Title = AreYouDumb.Resources.MainPage_YesDialog_Title,
+            Content = AreYouDumb.Resources.MainPage_YesDialog_Content,
+            PrimaryButtonText = AreYouDumb.Resources.MainPage_YesDialog_Button,
+            DefaultButton = ContentDialogButton.Primary,
+        }.ShowAsync(this)),
 
         new Button
         {
@@ -56,7 +51,7 @@ internal sealed class MainPage : Page
             TranslationTransition = new Vector3Transition { Duration = TimeSpan.FromMilliseconds(200)  }
         }
         .BindSelf(out NoButton)
-        .SetCustomEventHandler<Button, PointerEventHandler>("PointerEntered", (object sender, PointerRoutedEventArgs e) =>
+        .OnPointerEntered((sender, e) =>
         {
             var x = -Random.Shared.Next(0, 16) * 10;
             var y = -Random.Shared.Next(0, 20) * 10;
