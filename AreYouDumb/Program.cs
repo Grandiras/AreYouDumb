@@ -10,17 +10,14 @@ using WinSharp.Windows;
 
 new AppBuilder()
 
-.AddNavigationWindow(window =>
-{
-    window.Title = Resources.Title;
-
-    _ = window
+.AddNavigationWindow(window => _ = window
     .AddMenuPage<MainPage>(Resources.MainPage_Title, Symbol.Home, false)
-    .AddFooterPage<SettingsPage>(Resources.SettingsPage_Title, Symbol.Setting, true);
-})
+    .AddFooterPage<SettingsPage>(Resources.SettingsPage_Title, Symbol.Setting, true))
+
+.Configure<TitleBar>(titleBar => titleBar.Title = Resources.Title)
 
 .AddTransient<MainPage>()
-.AddTransient<SettingsPage>(settings => settings
+.Configure<SettingsPage>(settings => settings
     .AddComponent<ThemeSelector>()
     .AddComponent<AboutSection>())
 
@@ -29,6 +26,8 @@ new AppBuilder()
     section.AppName = Resources.Title;
     section.Publisher = "Darkymos";
     section.Version = "1.0.0.0";
+
+    section.Links.Add(new("Repository", "https://github.com/Grandiras/AreYouDumb"));
 })
 
 .Configure<EventBinding>(events => events.ExceptionThrown += (sender, e) => Debugger.Break())

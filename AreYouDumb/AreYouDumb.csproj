@@ -18,7 +18,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="WinSharp" Version="0.3.4.1" />
+    <PackageReference Include="WinSharp" Version="0.3.5.4" />
   </ItemGroup>
 
 	<ItemGroup>
