@@ -123,9 +123,6 @@
   <data name="MainPage.Title" xml:space="preserve">
     <value>Main</value>
   </data>
-  <data name="SettingsPage.Title" xml:space="preserve">
-    <value>Settings</value>
-  </data>
   <data name="MainPage.Heading" xml:space="preserve">
     <value>Are you dumb?</value>
   </data>
@@ -155,5 +152,8 @@
   </data>
   <data name="Settings.AboutSection.SectionHeader" xml:space="preserve">
     <value>About</value>
+  </data>
+  <data name="Settings.Header" xml:space="preserve">
+    <value>Settings</value>
   </data>
 </root>

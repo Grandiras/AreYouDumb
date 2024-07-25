@@ -133,6 +133,15 @@ namespace AreYouDumb {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        internal static string Settings_Header {
+            get {
+                return ResourceManager.GetString("Settings.Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Personalization.
         /// </summary>
         internal static string Settings_ThemeSelector_SectionHeader {
@@ -156,15 +165,6 @@ namespace AreYouDumb {
         internal static string Settings_ThemeSelector_ThemeHeader {
             get {
                 return ResourceManager.GetString("Settings.ThemeSelector.ThemeHeader", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Settings.
-        /// </summary>
-        internal static string SettingsPage_Title {
-            get {
-                return ResourceManager.GetString("SettingsPage.Title", resourceCulture);
             }
         }
         
