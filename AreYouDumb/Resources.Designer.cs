@@ -142,6 +142,33 @@ namespace AreYouDumb {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dark.
+        /// </summary>
+        internal static string Settings_ThemeSelector_Dark {
+            get {
+                return ResourceManager.GetString("Settings.ThemeSelector.Dark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default.
+        /// </summary>
+        internal static string Settings_ThemeSelector_Default {
+            get {
+                return ResourceManager.GetString("Settings.ThemeSelector.Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Light.
+        /// </summary>
+        internal static string Settings_ThemeSelector_Light {
+            get {
+                return ResourceManager.GetString("Settings.ThemeSelector.Light", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Personalization.
         /// </summary>
         internal static string Settings_ThemeSelector_SectionHeader {

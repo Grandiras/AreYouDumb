@@ -19,7 +19,7 @@ new AppBuilder()
 .Configure<TitleBar>(titleBar => titleBar.Title = Resources.Title)
 
 .AddTransient<MainPage>()
-.Configure<SettingsPage>(settings => settings
+.AddTransient<SettingsPage>(settings => settings
     .AddComponent<ThemeSelector>()
     .AddComponent<AboutSection>())
 
